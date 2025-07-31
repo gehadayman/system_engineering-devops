@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
-# Script name: 7-highlander
-# Author: Lidiya Endale
-# Description: Prints "To infinity and beyond" in an infinite loop,
-# and traps SIGTERM to print "I am invincible!!!" instead of terminating.
-
-terminate() {
-    echo "I am invincible!!!"
-}
-
-trap terminate SIGTERM
-
+# Script that handles SIGTERM signal gracefully
+trap "echo I am invincible!!!" SIGTERM
 while true
 do
-    echo "To infinity and beyond"
-    sleep 2
+  echo "To infinity and beyond"
+  sleep 2
 done
