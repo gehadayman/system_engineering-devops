@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script handles SIGTERM and prints a message
 
 trap 'echo "I am invincible!!!"' SIGTERM
 
-# Keep script alive to be able to receive the signal
+# Keep the script running
 while true
 do
     sleep 1
