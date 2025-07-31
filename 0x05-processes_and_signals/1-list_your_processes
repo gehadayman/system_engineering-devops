@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# This script prints only the command name and PID in "command,pid" format
-
-ps -eo comm,pid --no-headers | grep bash | awk '{print $1 "," $2}'
+# A Bash script that displays current time in 24-hour format
