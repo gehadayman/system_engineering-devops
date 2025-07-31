@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Display running processes with USER, STARTED and CMD columns
+# Display all processes in a user-oriented format, including background services
 
-ps -eo user,lstart,cmd --sort=start_time | awk 'NR==1 {print "USER\tSTARTED\tCMD"} NR>1 {printf "%s\t%s %s %s %s %s\t", $1, $2, $3, $4, $5, $6; for(i=8;i<=NF;++i) printf "%s ", $i; print ""}'
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
