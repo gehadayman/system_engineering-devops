@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Display all processes in a user-oriented format, including background services
+# Display processes with correct headers and time format
 
-ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
+ps -eo user,lstart,cmd --sort=start_time | awk 'NR==1 {print "USER STARTED COMMAND"; next} {printf "%s %02d:%02d:%02d %s\n", $1, $5, $6, $7, substr($0, index($0,$8))}'
