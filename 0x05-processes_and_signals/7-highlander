@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
-# This script handles SIGTERM and prints a message
-trap 'echo "I am invincible!!!"' SIGTERM
-# Keep the script running
-while true
-do
-    sleep 1
-done
+#!/usr/bin/env bash 
+# Displays a list of currently running processes
+
+ps -auxf
