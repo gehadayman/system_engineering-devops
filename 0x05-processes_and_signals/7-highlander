@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# Script that resists SIGTERM and prints a message instead
 
 trap "echo 'I am invincible!!!'" SIGTERM
 
+# keep the process alive so it can receive SIGTERM
 while true
 do
-  echo "To infinity and beyond"
-  sleep 2
+    sleep 1
 done
