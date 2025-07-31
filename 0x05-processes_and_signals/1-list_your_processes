@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script displays all running processes with hierarchy in a user-friendly format
+# This script lists all running processes in a compact "command,pid" format
 
-pstree -pau | less
+ps -eo comm,pid --no-headers | awk -F' ' '{print $1 "," $2}'
 
