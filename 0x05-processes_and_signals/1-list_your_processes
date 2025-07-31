@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Display processes with correct headers and time format
+# A Bash script that displays all running processes with user and command
 
-ps -eo user,lstart,cmd --sort=start_time | awk 'NR==1 {print "USER STARTED COMMAND"; next} {printf "%s %02d:%02d:%02d %s\n", $1, $5, $6, $7, substr($0, index($0,$8))}'
+ps -eo user,comm
