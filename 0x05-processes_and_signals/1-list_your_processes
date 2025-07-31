@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# A Bash script that displays all running processes with user and command
+# A Bash script that displays users running processes on the system
 
-ps -eo user,comm
+ps -eo user --no-headers | sort | uniq | awk 'BEGIN {print "USER"} {print}'
