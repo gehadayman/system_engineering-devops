@@ -1,4 +1,15 @@
-#!/usr/bin/env bash
-# A Bash script that displays users running processes on the system
+#!/bin/bash
 
-ps -eo user --no-headers | sort | uniq | awk 'BEGIN {print "USER"} {print}'
+# Display all processes in a user-friendly format with hierarchy
+ps -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --sort=ppid,pid | awk '
+BEGIN {
+    printf "%-10s %-6s %-6s %-5s %-5s %-8s %-6s %-8s %-5s %-8s %-8s %s\n", 
+           "USER", "PID", "PPID", "%CPU", "%MEM", "VSZ", "RSS", "TTY", "STAT", "START", "TIME", "COMMAND"
+}
+{
+    indent = ""
+    for (i = 0; i < $3/100; i++) { indent = indent "  " } # Approximate hierarchy
+    printf "%-10s %-6s %-6s %-5s %-5s %-8s %-6s %-8s %-5s %-8s %-8s %s%s\n", 
+           $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, indent, $12
+}'
+
