@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+# A Bash script that loops infinitely and handles the SIGTERM signal gracefully
 
-trap "echo 'I am invincible!!!'" SIGTERM
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# keep the process alive so it can receive SIGTERM
 while true
 do
-    sleep 1
+  echo "To infinity and beyond"
+  sleep 2
 done
