@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-# This script sends SIGTERM to the 7-highlander script
+# A Bash script that sends SIGTERM to the 7-highlander process using its PID
 
-pkill -f 7-highlander
+PID=$(pgrep -f 7-highlander)
+kill -TERM "$PID"
